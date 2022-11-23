@@ -1,8 +1,8 @@
 {
   "dependencies": {
     "boostrap": "^2.0.0",
+    "live-server": "^1.2.2",
     "sas": "^3.0.4",
-    "sass": "^1.56.1",
     "vite": "^3.2.4"
   },
   "keywords": [
@@ -31,5 +31,8 @@
   "bugs": {
     "url": "https://github.com/ShaindalDev/DigitalAuction/issues"
   },
-  "homepage": "https://github.com/ShaindalDev/DigitalAuction#readme"
+  "homepage": "https://github.com/ShaindalDev/DigitalAuction#readme",
+  "devDependencies": {
+    "sass": "^1.56.1"
+  }
 }
