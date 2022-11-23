@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "boostrap": "^2.0.0",
+    "bootstrap": "^5.2.3",
     "live-server": "^1.2.2",
     "vite": "^3.2.4"
   },
