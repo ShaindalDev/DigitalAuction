@@ -1,0 +1,35 @@
+{
+  "dependencies": {
+    "boostrap": "^2.0.0",
+    "sas": "^3.0.4",
+    "sass": "^1.56.1",
+    "vite": "^3.2.4"
+  },
+  "keywords": [
+    "boostrap",
+    "sass"
+  ],
+  "name": "digitalauction",
+  "type": "module",
+  "description": "An Online auction website from Noroff API",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "sass --watch src/scss:dist/css & live-server",
+    "build": "sass src/scss:dist/css",
+    "dev": "vite",
+    "vite-build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShaindalDev/DigitalAuction.git"
+  },
+  "author": "Robin Johnsen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShaindalDev/DigitalAuction/issues"
+  },
+  "homepage": "https://github.com/ShaindalDev/DigitalAuction#readme"
+}
