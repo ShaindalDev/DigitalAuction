@@ -8,7 +8,7 @@
     itemsContainer.innerHTML = "";
 
     itemsToRender.forEach((items) => {
-      itemsContainer.innerHTML += `<div class="row row-cols-1 row-cols-md-2 g-4 mx-auto">
+      itemsContainer.innerHTML += `
       <div class="col">
         <div class="card py-3 px-3">
           <img src="${items.media}" class="card-img-top" alt="...">
@@ -17,8 +17,7 @@
             <p class="card-text">${items.description}</p>
           </div>
         </div>
-      </div>
-    </div>`;
+      </div>`;
     });
     
 };
