@@ -5,6 +5,7 @@ import { authFetch } from "../authHeader";
 
 const actions = "/listings?_seller=true&_bids=true"; //this will be added later
 
+const profileWrapper = document.getElementById("userWrapper");
 async function getProfile() {
   const getUserProfileUrl = `${profileURL}/${profile}`;
   const response = await authFetch(getUserProfileUrl);

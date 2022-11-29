@@ -24,6 +24,7 @@ loginForm.addEventListener("submit", (event) => {
       .then((data) => {
         window.localStorage.setItem("_token", data.accessToken);
         window.localStorage.setItem("_email", data.email);
+        window.localStorage.setItem("credits", data.credits);
         window.localStorage.setItem("profile", data.name);
         location.href = "/profile/index.html"
       })
