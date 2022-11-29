@@ -42,7 +42,7 @@ registerForm.addEventListener("submit", (event) => {
 
 
 // *****Manuel registration of a profile ******
-// fetch('https://nf-api.onrender.com/api/v1/auction/auth/register', {
+// fetch('https://nf-api.noroff.dev/api/v1/auction/auth/register', {
 // method: 'POST',
 // body: JSON.stringify({
 //     name: "Shaindal3",

@@ -10,7 +10,7 @@ loginForm.addEventListener("submit", (event) => {
   const email = loginForm.email.value;
   const password = loginForm.password.value;
   try {
-    fetch("https://nf-api.onrender.com/api/v1/auction/auth/login", {
+    fetch("https://api.noroff.dev/api/v1/auction/auth/login", {
       method: "POST",
       body: JSON.stringify({
         email: email,
