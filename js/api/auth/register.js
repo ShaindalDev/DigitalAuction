@@ -1,4 +1,4 @@
-import { apiPath } from "../constants.js";
+import { apiUrl } from "../constants.js";
 
 const registerForm = document.getElementById("registerForm");
 /**
@@ -13,7 +13,7 @@ registerForm.addEventListener("submit", (event) => {
   const password = registerForm.registerPassword.value;
   const avatar = registerForm.registerAvatar.value
   try {
-    fetch(`${apiPath}/auth/register`, {
+    fetch(`${apiUrl}/auth/register`, {
       method: "POST",
       body: JSON.stringify({
         name: userName,
@@ -28,8 +28,8 @@ registerForm.addEventListener("submit", (event) => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        // window.localStorage.setItem("_token", data.accessToken);
-        location.href = "/pages/profile.html";
+        window.localStorage.setItem("_token", data.accessToken);
+        location.href = "/";
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -40,12 +40,13 @@ registerForm.addEventListener("submit", (event) => {
 });
 
 
+
 // *****Manuel registration of a profile ******
 // fetch('https://nf-api.onrender.com/api/v1/auction/auth/register', {
 // method: 'POST',
 // body: JSON.stringify({
-//     name: "Shaindal",
-//     email: "RobJoh57981@stud.noroff.no",
+//     name: "Shaindal3",
+//     email: "shaindal3Test@stud.noroff.no",
 //     password: "Ailo220189"
 
 // }),
@@ -56,4 +57,4 @@ registerForm.addEventListener("submit", (event) => {
 // .then((response) => response.json())
 // .then((json) => console.log(json));
 
-//     localStorage.setItem('token', accessToken);
+//     localStorage.setItem('_token', accessToken);

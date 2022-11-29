@@ -1,13 +1,15 @@
-import * as auth from "../../api/auth/index.js";
-import { updateLoginVisibility } from "../../ui/auth.js";
+import { login } from "../api/auth/login.js";
 
-export async function loginListener(event) {
-  event.preventDefault()
-  const form = event.target
-  const data = new FormData(form)
-  const email = data.get("email")
-  const password = data.get("password")
-  const { name } = await auth.login(email, password)
-  updateLoginVisibility()
-  location.href = `/?view=profile&name=${name}`
+function submitLoginForm() {
+  const LOGIN_FORM = document.querySelector("form#login-form");
+  const email = document.querySelector("input#login-email");
+  const password = document.querySelector("input#login-password");
+
+  LOGIN_FORM.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    login(email.value, password.value);
+  });
 }
+
+submitLoginForm();
