@@ -10,7 +10,7 @@ loginForm.addEventListener("submit", (event) => {
   const email = loginForm.email.value;
   const password = loginForm.password.value;
   try {
-    fetch("https://nf-api.onrender.com/api/v1/auction/auth/login", {
+    fetch("https://nf-api.onrender.dev/api/v1/auction/auth/login", {
       method: "POST",
       body: JSON.stringify({
         email: email,
@@ -24,8 +24,9 @@ loginForm.addEventListener("submit", (event) => {
       .then((data) => {
         window.localStorage.setItem("_token", data.accessToken);
         window.localStorage.setItem("_email", data.email);
+        window.localStorage.setItem("credit", data.credits)
         window.localStorage.setItem("profile", data.name);
-        location.href = "/profile/index.html"
+        location.href = "./profile/index.html"
       })
       .catch((error) => {
         console.error("Error:", error);

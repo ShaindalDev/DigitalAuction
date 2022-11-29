@@ -1,4 +1,4 @@
-import { apiUrl } from "../constants.js";
+import { apiPath } from "../constants.js";
 
 const registerForm = document.getElementById("registerForm");
 /**
@@ -8,17 +8,19 @@ const registerForm = document.getElementById("registerForm");
 registerForm.addEventListener("submit", (event) => {
   console.log('test')
   event.preventDefault();
-  const userName = registerForm.registerName.value;
-  const email = registerForm.registerEmail.value;
-  const password = registerForm.registerPassword.value;
-  const avatar = registerForm.registerAvatar.value
+  const userName = registerForm.userName.value;
+  const email = registerForm.userEmail.value;
+  const password = registerForm.userPassword.value;
+  const banner = registerForm.banner.value;
+  const avatar = registerForm.avatar.value
   try {
-    fetch(`${apiUrl}/auth/register`, {
+    fetch(`${apiPath}/auth/register`, {
       method: "POST",
       body: JSON.stringify({
         name: userName,
         email: email,
         password: password,
+        banner: banner,
         avatar: avatar
       }),
       headers: {
@@ -28,8 +30,8 @@ registerForm.addEventListener("submit", (event) => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        window.localStorage.setItem("_token", data.accessToken);
-        location.href = "/";
+        // window.localStorage.setItem("_token", data.accessToken);
+        location.href = "./index.html";
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -42,12 +44,12 @@ registerForm.addEventListener("submit", (event) => {
 
 
 // *****Manuel registration of a profile ******
-// fetch('https://nf-api.onrender.com/api/v1/auction/auth/register', {
+// fetch('https://nf-api.onrender.com/api/v1/social/auth/register', {
 // method: 'POST',
 // body: JSON.stringify({
-//     name: "Shaindal3",
-//     email: "shaindal3Test@stud.noroff.no",
-//     password: "Ailo220189"
+//     name: "Shaindal",
+//     email: "RobJoh57981@stud.noroff.no",
+//     password: "Ina130509"
 
 // }),
 // headers: {
@@ -57,4 +59,4 @@ registerForm.addEventListener("submit", (event) => {
 // .then((response) => response.json())
 // .then((json) => console.log(json));
 
-//     localStorage.setItem('_token', accessToken);
+//     localStorage.setItem('token', accessToken);
