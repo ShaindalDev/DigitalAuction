@@ -6,7 +6,7 @@ const registerForm = document.getElementById("registerForm");
  * this takes info from the registration form and register it to the API, if all is valid a user is registered to the application.
  */
 registerForm.addEventListener("submit", (event) => {
-  console.log('test')
+  console.log('test click')
   event.preventDefault();
   const userName = registerForm.registerName.value;
   const email = registerForm.registerEmail.value;
@@ -29,7 +29,7 @@ registerForm.addEventListener("submit", (event) => {
       .then((data) => {
         console.log(data);
         window.localStorage.setItem("_token", data.accessToken);
-        location.href = "/";
+        location.href = "/profile/index.html";
       })
       .catch((error) => {
         console.error("Error:", error);

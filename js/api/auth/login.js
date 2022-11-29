@@ -38,6 +38,5 @@ loginForm.addEventListener("submit", (event) => {
 if (localStorage.getItem("_token")) {
   location.href = "/profile/index.html"
 };
-
 let link = document.getElementById("logoutLink")
     link.style.display="none";
