@@ -1,3 +1,4 @@
+import { timeFormatChanger } from "./timeChange";
 /**
  * This renders the HTML for all items. 
  * @param {*} itemsToRender 
@@ -15,6 +16,10 @@
           <div class="card-body">
             <h5 class="card-title">${items.title}</h5>
             <p class="card-text">${items.description}</p>
+            <p class="card-text>${items.tags}</p>
+            <p class="card-text>${items.bids}</p>
+            <p class="card-text>${items.created}</p>
+            <p class="card-text">${items.endsAt}</p>
           </div>
         </div>
       </div>`;

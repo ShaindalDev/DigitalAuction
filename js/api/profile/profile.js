@@ -3,9 +3,11 @@ import { profileURL } from "../constants";
 import { profile } from "../constants";
 import { authFetch } from "../authHeader";
 
-const actions = "/listings?_seller=true&_bids=true"; //this will be added later
-
 const profileWrapper = document.getElementById("userWrapper");
+
+/**
+ * This is the function that gets information for users profile.
+ */
 async function getProfile() {
   const getUserProfileUrl = `${profileURL}/${profile}`;
   const response = await authFetch(getUserProfileUrl);
