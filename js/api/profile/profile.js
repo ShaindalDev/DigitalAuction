@@ -5,11 +5,13 @@ import { authFetch } from "../authHeader";
 
 const profileWrapper = document.getElementById("userWrapper");
 
+const loggedInUser = "?_seller=true&_count=true&_listings=true";
+
 /**
  * This is the function that gets information for users profile.
  */
 async function getProfile() {
-  const getUserProfileUrl = `${profileURL}/${profile}?_listings=true`;
+  const getUserProfileUrl = `${profileURL}/${profile}${loggedInUser}`;
   const response = await authFetch(getUserProfileUrl);
   const data = await response.json();
   console.log(data);
