@@ -1,0 +1,9 @@
+// Bootstrap variable overrides
+@import "variables";
+
+
+// Bootstrap styles
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+//Custom styles
+@import "./components/globalstyles";
