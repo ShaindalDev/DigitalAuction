@@ -9,7 +9,7 @@ const profileWrapper = document.getElementById("userWrapper");
  * This is the function that gets information for users profile.
  */
 async function getProfile() {
-  const getUserProfileUrl = `${profileURL}/${profile}`;
+  const getUserProfileUrl = `${profileURL}/${profile}?_listings=true`;
   const response = await authFetch(getUserProfileUrl);
   const data = await response.json();
   console.log(data);
@@ -21,6 +21,7 @@ async function getProfile() {
       <p class="lead mb-4">This is your statistics</p>
       <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
         <p>Credits: ${data.credits}</p>
+        <p>Listings: ${data._count.listings}</p>
         <p>Winning bids: ${data.wins}</p>
       </div>
     </div>
