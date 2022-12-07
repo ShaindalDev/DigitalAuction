@@ -10,6 +10,7 @@
     ></script>
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
     <script src="../js/api/profile/index.js" type="module" defer></script>
+    <script src="../js/listeners/create.js" type="module" defer></script>
     <!-- <script src="../js/api/profile/profile.js" type="module" defer></script> -->
     <script src="../js/api/auth/logout.js" defer></script>
     <!-- <script src="../js/api/profile/usersListing.js" type="module" defer></script> -->
@@ -85,14 +86,13 @@
       
                 <div class="mb-2">
                   <label for="media" class="form-label">Media</label>
-                  <input type="text" class="form-control" id="media" name="media" placeholder="Requires a propper working URL" />
+                  <input type="url" class="form-control" id="media" name="media" placeholder="Requires a propper working URL" />
                   <div class="invalid-feedback">Please enter valid image url.</div>
                 </div>
       
                 <div class="mb-2">
                   <label for="endsAt" class="form-label">End</label>
                   <input type="datetime-local" class="form-control" id="endsAt" name="endsAt" />
-                  <div class="invalid-feedback">Please enter valid image url.</div>
                 </div>
       
                 <div class="mb-2">

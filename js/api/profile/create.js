@@ -10,7 +10,7 @@ const method = "post";
  * @param {*} listingData 
  */
 export async function createNewListing(listingData) {
-    const createListingURL = apiUrl + action;
+    const createListingURL = `${apiUrl}${action};`
 
     const response = await authFetch(createListingURL, {
         method,

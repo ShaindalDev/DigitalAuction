@@ -11,3 +11,5 @@ form.addEventListener("submit", (event) => {
 
     createNewListing(listing)
 });
+
+console.log("this was loaded");
