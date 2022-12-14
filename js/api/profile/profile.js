@@ -9,17 +9,18 @@ console.log(user);
 
 const method = "GET";
 
+
 const URL = `${profileURL}/${userName}`;
 const profileWrapper = document.getElementById("userWrapper");
 
 /**
- * function to fetch the profile info from the API
+ * function to fetch the profile info from the API 
  */
 export async function getProfile() {
   try {
     const response = await authFetch(URL, method);
     const userInfo = await response.json();
-
+    
     profileWrapper.innerHTML = "";
     profileWrapper.innerHTML += `<div class="mt-1 px-4 py-5 text-center border-bottom border-top solid shadow p-3 mb-5" id="usersProfile">
   <img class="d-block mx-auto mb-4 rounded" src="${userInfo.avatar}" alt="" width="100" height="90">
@@ -35,5 +36,7 @@ export async function getProfile() {
   } catch (error) {
     console.log(error);
   }
+
+
 }
 getProfile();
