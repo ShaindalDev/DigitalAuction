@@ -1,9 +1,13 @@
-const logout = document.getElementById("logout");
-logout.addEventListener("click", (e) => {
-  localStorage.removeItem("_token");
-  localStorage.removeItem("_email");
-  localStorage.removeItem("credits");
-  localStorage.removeItem("profile");
-  location.reload();
-  
-});
+import { remove } from "../../storage";
+
+export function logOut() {
+  const logOutButton = document.querySelector("#logout");
+
+  if (logOutButton) {
+    logOutButton.onclick = function () {
+      remove("token");
+      remove("userProfile");
+      location.href = "../../../login/index.html";
+    };
+  }
+}
