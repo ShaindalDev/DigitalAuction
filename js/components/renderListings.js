@@ -16,12 +16,14 @@ import { timeFormatChanger } from "./timeChange";
           <div class="card-body">
             <h5 class="card-title">${items.title}</h5>
             <p class="card-text">${items.description}</p>
-            <p class="card-text>${items.tags}</p>
-            <p class="card-text>${items.bids}</p>
-            <p class="card-text>${items.created}</p>
-            <p class="card-text">${items.endsAt}</p>
+            <p class="card-text">${items.tags}</p>
+            <p class="card-text">Bids on this item<span class="mx-1">|</span>${items._count.bids}</p>
           </div>
-        </div>
+          <div class="py-3 px-3">Ending: 
+            <p class="bg-info border border-solid rounded mb-3 py-2 px-2">${new Date(items.endsAt).toLocaleDateString()} <span class=mx-1>|</span>${new Date(items.endsAt).toLocaleTimeString()}
+          </div>
+          <button type="button" class="btn btn-outline-primary btn-lg px-4"><a class="nav-link" id="details" href="../listing/singleListing/index.html?${items.id}">Details</a></button>
+          </div>
       </div>`;
     });
     
