@@ -8,7 +8,7 @@ if (path === "/login/index.html") {
   listeners.setLogInFormListener();
 } else if (path === "/login/index.html") {
   listeners.setRegisterUserListener();
-} else if (path === "/login/index.html") {
+} else if (path === "/profile/index.html") {
   listeners.createNewListingListener();
 } else if (path === "/profile/avatarEdit/") {
   listeners.updateAvatarListener();

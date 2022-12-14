@@ -34,4 +34,3 @@ export async function logIn(userProfile) {
     console.log(error);
   }
 }
-

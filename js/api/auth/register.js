@@ -1,33 +1,22 @@
-import { API_MAIN_URL } from "../constants";
+import { API_MAIN_URL } from "../constants.js";
 
 const action = "/auth/register";
 const method = "POST";
 
 export async function register(userProfile) {
-  const registerURL = API_MAIN_URL + action;
-  const body = JSON.stringify(userProfile);
+  const registerURL = `${API_MAIN_URL}${action}`;
 
   try {
     const response = await fetch(registerURL, {
       headers: {
         "Content-Type": "application/json",
       },
-      method: method,
-      body: body,
+      method,
+      body: JSON.stringify(userProfile),
     });
 
     const result = await response.json();
     console.log(response);
-
-    if (response.status === 201) {
-      location.href = "../../profile/index.html";
-    }
-
-    if (response.status !== 201) {
-      alert(
-        "Something happened, please check your inputs and try again"
-      );
-    }
 
     return result;
   } catch (error) {
@@ -35,12 +24,9 @@ export async function register(userProfile) {
   }
 }
 
-
-
-
 // const registerForm = document.getElementById("registerForm");
 /**
- * This is the register function with evenListener on the register button. 
+ * This is the register function with evenListener on the register button.
  * this takes info from the registration form and register it to the API, if all is valid a user is registered to the application.
  */
 // registerForm.addEventListener("submit", (event) => {
@@ -76,8 +62,6 @@ export async function register(userProfile) {
 //     console.log(error);
 //   }
 // });
-
-
 
 // *****Manuel registration of a profile ******
 // fetch('https://nf-api.noroff.dev/api/v1/auction/auth/register', {

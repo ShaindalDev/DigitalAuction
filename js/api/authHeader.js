@@ -1,26 +1,26 @@
 import { load } from "../storage/index.js";
 /**
- * This inserts the authentication headers that is required for everything that has to do with a request done to the API. 
+ * This inserts the authentication headers that is required for everything that has to do with a request done to the API.
  * @param {string} token this is the authentication token stored when you login to the application
- * @returns 
+ * @returns
  */
- export function headers() {
+export function headers() {
   const token = load("token");
 
   return {
-      "Content-Type": "application/json",
-      "Authorization" : `Bearer ${token}`
-  }
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${token}`,
+  };
 }
 /**
-* This is a function to make it easier to run a request to the API, this contains all info required in the authorization header. 
-* @param {*} url 
-* @param {*} options 
-* @returns 
-*/
+ * This is a function to make it easier to run a request to the API, this contains all info required in the authorization header.
+ * @param {*} url
+ * @param {*} options
+ * @returns
+ */
 export async function authFetch(url, options = {}) {
-  return fetch(url,  {
-      ...options,
-      headers: headers()
-  })
+  return fetch(url, {
+    ...options,
+    headers: headers(),
+  });
 }

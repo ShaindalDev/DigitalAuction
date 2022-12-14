@@ -12,17 +12,14 @@ const listingWrapper = document.getElementsByClassName("usersAuctions");
  * @param {string} token This is the token that has been stored when login function was run
  */
 export async function getUserListing() {
-  const response = await fetch(
-    `${usersListing}/shaindal/listings`,
-    {
-      method: "get",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify(),
-    }
-  );
+  const response = await fetch(`${usersListing}/shaindal/listings`, {
+    method: "get",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(),
+  });
   const data = await response.json();
   // console.log(data);
   /**
@@ -55,5 +52,3 @@ export async function getUserListing() {
 }
 
 getUserListing();
-
-

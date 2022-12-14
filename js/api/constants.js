@@ -6,6 +6,5 @@ export const listingsURL = "/listings";
 export const bidsURL = "/bids";
 export const sellerBidsURL = "?_seller=true&_bids=true";
 
-
 // LocalStorage Exports
 export const profile = localStorage.getItem("profile");
