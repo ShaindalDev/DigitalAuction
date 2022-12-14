@@ -1,16 +1,23 @@
-import { apiUrl } from "../constants";
-import { renderItems } from "../../components/renderListings";
+import { API_MAIN_URL } from "../constants.js";
+import { renderItems } from "../../components/renderListings.js";
 
-export async function getAllItems(getItemsURL) {
-    const url = `${apiUrl}/auction/listings`;
-    const method = "GET";
+const action = "/listings"
+
+
+async function getAllItems() {
+    const url = `${API_MAIN_URL}${action}?sort=created&sortOrder=desc`;
+    
 
     try {
         const response = await fetch(url);
-        const items = await response.json(getItemsURL);
-        console.log(items);
-        renderItems(items);
-    } catch(error) {
+        const data = await response.json();
+
+        if (response.status === 200) {
+            renderItems(data);
+        }
+
+        console.log(data);
+    } catch (error) {
         console.log(error);
     }
 };

@@ -1,4 +1,5 @@
-import { usersListing } from "../constants";
+import { usersListing } from "../constants.js";
+import { profile } from "../constants.js";
 import { timeFormatChanger } from "../../components/timeChange"; //will be implemented later
 
 const token = localStorage.getItem("_token");
@@ -12,7 +13,7 @@ const listingWrapper = document.getElementsByClassName("usersAuctions");
  */
 export async function getUserListing() {
   const response = await fetch(
-    `${usersListing}/${userName}/listings`,
+    `${usersListing}/shaindal/listings`,
     {
       method: "get",
       headers: {
@@ -54,3 +55,5 @@ export async function getUserListing() {
 }
 
 getUserListing();
+
+
