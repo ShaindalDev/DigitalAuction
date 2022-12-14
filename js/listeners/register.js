@@ -1,0 +1,20 @@
+import { register } from "../api/auth/register.js";
+
+/**
+ * Function for listener for the register form 
+ */
+export function setRegisterUserListener() {
+  const form = document.getElementById("register-form");
+
+  if (form) {
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const form = event.target;
+      const formData = new FormData(form);
+      const userProfile = Object.fromEntries(formData.entries());
+
+      register(userProfile)
+    });
+  }
+};
