@@ -1,10 +1,11 @@
+import { load } from "../storage/index.js";
 /**
  * This inserts the authentication headers that is required for everything that has to do with a request done to the API. 
  * @param {string} token this is the authentication token stored when you login to the application
  * @returns 
  */
  export function headers() {
-  const token = localStorage.getItem("_token");
+  const token = load("token");
 
   return {
       "Content-Type": "application/json",
