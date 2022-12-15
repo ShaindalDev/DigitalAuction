@@ -13,7 +13,7 @@ export async function createNewListing(listingData) {
       body: JSON.stringify(listingData),
     });
 
-    // location.href = "../../listing/index.html";
+    location.href = "../../profile/index.html";
     return await response.json();
   } catch (error) {
     console.log(error);

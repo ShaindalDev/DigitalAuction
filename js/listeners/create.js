@@ -19,12 +19,12 @@ export function createNewListingListener() {
 
       const listing = { title, description, media, endsAt, tags };
 
-      if (post.tags === "") {
-        delete post.tags;
+      if (listing.tags === "") {
+        delete listing.tags;
       }
 
-      if (post.media === "") {
-        delete post.media;
+      if (listing.media === "") {
+        delete listing.media;
       }
 
       createNewListing(listing);
@@ -32,6 +32,7 @@ export function createNewListingListener() {
     });
   }
 }
+
 
 // const form = document.getElementById("newListingForm");
 
