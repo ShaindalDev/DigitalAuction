@@ -28,7 +28,7 @@ export function renderItems(itemsToRender) {
       items.endsAt
     ).toLocaleTimeString()}
           </div>
-          <button type="button" class="btn btn-outline-primary btn-lg px-4"><a class="nav-link" id="details" href="../listing/singleListing/index.html?${
+          <button type="button" class="btn btn-outline-primary btn-lg px-4"><a class="nav-link" id="details" href="../listings/singleListing/index.html?${
             items.id
           }">Details</a></button>
           </div>
