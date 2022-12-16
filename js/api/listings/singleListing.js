@@ -1,96 +1,92 @@
 import { API_MAIN_URL } from "../constants.js";
-import { authFetch } from "./authFetch.js";
-import { deleteListing } from "./deleteListing.js";
+import { authFetch } from "../authHeader.js";
 
 const params = new URLSearchParams(document.location.search);
 const id = params.get("id");
-if (!id) location.href = "../../../index.html";
+if (!id) location.href = "../../../../index.html";
 
 const action = "/listings";
 const method = "GET";
 
 const url = `${API_MAIN_URL}${action}/${id}?_seller=true&_bids=true`;
-const container = document.getElementById("singelItem");
+const title = document.querySelector("title");
+const wrapper = document.querySelector("#singleItem");
 
-(async function getSingleListing() {
-  try {
-    const response = await authFetch(url, { method });
-    const singleListing = await response.json();
-
-    
-    const image = singleListing.media
+(async function getDetails() {
+    try {
+      const response = await authFetch(url, { method });
+      const detailsListing = await response.json();
+  
+      title.innerHTML = `Digital Auction | ${detailsListing.title}`;
+  
+      const avatarImage = detailsListing.seller.avatar
       ? `<img
-      src="${singleListing.media}"
-      alt="Image for ${singleListing.title}"
-      class="auction-image"
+      src="${detailsListing.seller.avatar}"
+      alt="Avatar for ${detailsListing.seller.name}"
+      class="d-block mx-auto mb-4 rounded" width="100" height="90"
     />`
       : "";
-
-    const avatarImage = singleListing.seller.avatar
-      ? `<img
-      src="${singleListing.seller.avatar}"
-      alt="Avatar for ${singleListing.seller.name}"
-      class="seller-image"
-    />`
-      : "";
-
-    const bidHistory = singleListing;
-    for (var i = 0; i < singleListing.bids.length; i++) {
-      console.log(singleListing.bids[i]);
-    }
-
-    const sortedBids = bidHistory.bids.sort((a, b) => b.amount - a.amount);
-    const bids = sortedBids[0]
-      ? `<p class="bids-info">Currently the latest bid made is: </p><p>${
-          singleListing.bids[0].amount
-        } Credits by ${
-          singleListing.bids[0].bidderName
-        } </p> <p class="bids-info"> Created at: </p> <p>${new Date(
-          singleListing.bids[0].created
+      
+      const listingImage = detailsListing.media
+        ? `<img
+        src="${detailsListing.media}"
+        alt="Image for ${detailsListing.title}"
+        class="auction-image"
+      />`
+        : "";
+  
+      const historyOfBids = detailsListing;
+      for (var i = 0; i < detailsListing.bids.length; i++) {
+        console.log(detailsListing.bids[i]);
+      }
+  
+      const sortingOfBids = historyOfBids.bids.sort((a, b) => b.amount - a.amount);
+      const bids = sortingOfBids[0]
+        ? `<div class=""<p class="bids-info">Currently the latest bid made is: </p><p>${
+            detailsListing.bids[0].amount
+          } Credits by ${
+            detailsListing.bids[0].bidderName
+          } </p> <p class="bids-info"> Created at: </p> <p>${new Date(
+            detailsListing.bids[0].created
+          ).toDateString()} at ${new Date(
+            detailsListing.bids[0].created
+          ).toLocaleTimeString()}</p>`
+        : "";
+  
+        wrapper.innerHTML = `
+      <div class="card text-center justify-content-center m-4 p-0">
+        <h2 class="card-header">${detailsListing.title}</h2>
+        <p class="listing-text my-3">${detailsListing.description}</p>
+        ${listingImage}
+        <p>${detailsListing.tags}</p>
+        <p>Closes at: </br> ${new Date(
+          detailsListing.endsAt
         ).toDateString()} at ${new Date(
-          singleListing.bids[0].created
-        ).toLocaleTimeString()}</p>`
-      : "";
-
-    container.innerHTML = `
-    <div class="card text-center justify-content-center m-4 p-0">
-      <h2 class="card-header">${singleListing.title}</h2>
-      <p class="listing-text my-3">${singleListing.description}</p>
-      ${image}
-      <p>${singleListing.tags}</p>
-      <p>Closes at: </br> ${new Date(
-        singleListing.endsAt
-      ).toDateString()} at ${new Date(
-      singleListing.endsAt
-    ).toLocaleTimeString()}</p>
-      <div class="card text-center justify-content-center m-2 p-3">
-        ${bids}
-        <p class="bids-info">Amount of bids on this item is: </br> ${
-          singleListing._count.bids
-        }</h4>
+        detailsListing.endsAt
+      ).toLocaleTimeString()}</p>
+      <hr/>
+        <div class="card text-center justify-content-center m-2 p-3">
+          ${bids}
+          <p class="bids-info">Amount of bids on this item is: </br> ${
+            detailsListing._count.bids
+          }</h4>
+        </div>
+        <hr/>
+        <div class="card-footer text-muted m-0">
+          <h3>The seller:</h3>
+          ${avatarImage}
+          <p>Name: ${detailsListing.seller.name}</p>
+          <p>Contact the seller by email: ${detailsListing.seller.email}</p>
+        </div>
       </div>
-      <div class="card-footer text-muted m-0">
-        <h3>Information about the seller:</h3>
-        ${avatarImage}
-        <p>The seller is ${singleListing.seller.name}</p>
-        <p>Contact the seller by email: ${singleListing.seller.email}</p>
-      </div>
-    </div>
-    <div class="center-buttons mb-3">
-      <button class="w-30 bttn btn-lg" id="delete" type="button" data-delete="${
-        singleListing.id
-      }">Delete Listing</button>
-      <a href="/listing/bid/?id=${
-        singleListing.id
-      }"><button class="w-30 bttn btn-lg" type="button">Add a Bid</button></a>
-      <a href="/listing/edit/?id=${
-        singleListing.id
-      }"><button class="w-30 bttn btn-lg" type="button">Edit Listing</button></a>
-    </div>`;
-
-    const deleteBtn = document.querySelector("#delete");
-    deleteBtn.addEventListener("click", deleteListing);
-  } catch (error) {
-    console.log(error);
-  }
-})();
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center my-2 px-4">
+      <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#newListingBid" aria-controls="newListingBid">Add a bid</button>
+        <a href="/listing/bid/?id=${
+          detailsListing.id
+        }"><button class="btn btn-outline-primary btn-lg" type="button">Add a Bid</button></a>
+        </div>
+      </div>`;
+    } catch (error) {
+      console.log(error);
+    }
+  })();

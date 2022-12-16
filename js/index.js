@@ -6,13 +6,13 @@ console.log("current path", path);
 
 if (path === "/login/index.html") {
   listeners.setLogInFormListener();
-} else if (path === "/login/index.html") {
   listeners.setRegisterUserListener();
-} else if (path === "/profile/index.html") {
+} else if (path === "/listings/create/index.html") {
   listeners.createNewListingListener();
-} else if (path === "/profile/avatarEdit/") {
+} else if (path === "/profile/index.html") {
   listeners.updateAvatarListener();
 } else if (path === "/listing/singleListing/index.html") {
   listeners.bidOnItemListener();
 }
-console.log("this was loaded");
+
+console.log("this was loaded..cachingching");
