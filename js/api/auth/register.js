@@ -17,7 +17,15 @@ export async function register(userProfile) {
 
     const result = await response.json();
     console.log(response);
+    if (response.status === 201) {
+      location.href = "../../../profile/index.html";
+    }
 
+    if (response.status !== 201) {
+      alert(
+        "Something went wrong!: ${response.status}"
+      );
+    }
     return result;
   } catch (error) {
     console.log(error);

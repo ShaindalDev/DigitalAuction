@@ -29,9 +29,12 @@ export async function getProfile() {
     <p class="lead mb-4">This is your statistics</p>
     <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
       <p class="mb-4">Credits: ${userInfo.credits} <span class=mx-2>|</span> Wining Bids: ${userInfo.wins.length} <span class=mx-2>|</span> Listings: ${userInfo._count.listings}</p>
-
     </div>
-  </div>
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <button type="button" class="btn btn-outline-primary btn-sm px-4 gap-3"><a href="../../listings/create/index.html">Create Listing</a></button>
+        <button type="button" class="btn btn-outline-primary btn-sm px-4"data-bs-toggle="offcanvas" data-bs-target="#updateAvatarImg" aria-controls="updateAvatarImg">Update Avatar</button>
+      </div>
+    </div>
 </div>`;
   } catch (error) {
     console.log(error);
