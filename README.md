@@ -1,5 +1,5 @@
 # Digital Auction 
-
+Demo of the site it self : https://shaindaldev.github.io/DigitalAuction/
 ## Description
 
 A online auction house website. This is part of Noroff semester project. Built with Noroff API to access items and data that is created.
