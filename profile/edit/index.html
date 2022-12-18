@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Digital Auction site for buying and selling items">
-    <meta name="keywords" content="Auction, Digital, Selling, Online, profile">
+    <meta name="keywords" content="Auction, Digital, Selling, Online">
     <meta name="author" content="Johnsen-codes.no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -68,6 +68,42 @@
       <div class="wrapper">
         <div class="userWrapper" id="userWrapper"></div>
       </div>
+            <!--Create a new listing goes here-->
+            <div class="container d-flex flex-column mt-4 border border-solid shadow rounded w-50">
+              <h1>Create new listing</h1>
+              <form class="d-flex flex-column gap-3" id="newListingForm">
+                <div class="mb-2">
+                  <label for="title" class="form-label">Title</label>
+                  <input type="text" class="form-control" id="title" name="title" placeholder="Title" required/>
+                </div>
+      
+                <div class="mb-2">
+                  <label for="description" class="form-label">Description</label>
+                  <textarea class="form-control" id="description" name="description" rows="3" placeholder="Description" required></textarea>
+                </div>
+      
+                <div class="mb-2">
+                  <label for="media" class="form-label">Media</label>
+                  <input type="url" class="form-control" id="media" name="media" placeholder="Requires a working URL" />
+                </div>
+      
+                <div class="mb-2">
+                  <label for="endsAt" class="form-label">End</label>
+                  <input type="datetime-local" class="form-control" id="endsAt" name="endsAt" />
+                </div>
+      
+                <div class="mb-2">
+                  <label for="tags" class="form-label">Tags</label>
+                  <input type="text" class="form-control" id="tags" name="tags" placeholder="Tags" required/>
+                </div>
+      
+                <div class="mb-3">
+                  <button class="btn btn-outline-success" type="submit" id="newEntryBtn" name="newEntry">Submit form</button>
+                  <button class="btn btn-outline-secondary" type="reset" id="cancelBtn" name="cancel">Reset</button>
+                </div>
+              </form>
+            </div>
+            <!--Create a new listing ends here-->
       <!--Users auction list starts here-->
       <div class="listingWrapper mt-4 mb-2" >
         <div class="row row-cols-1 row-cols-md-2 g-4 mx-auto usersAuctions" id="itemsList"></div>
@@ -89,7 +125,7 @@
       </footer>
       <!--footer ends here-->
       <!--Offcanvas stuff here-->
-<div class="offcanvas offcanvas-top" tabindex="-1" id="updateAvatarImg" aria-labelledby="updateAvatarImgLabel">
+<!-- <div class="offcanvas offcanvas-top" tabindex="-1" id="updateAvatarImg" aria-labelledby="updateAvatarImgLabel">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title" id="offcanvasTopLabel">Update Avatar</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -107,7 +143,7 @@
     <button type="close" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
     <button type="submit" class="btn btn-primary" id="updateAvatarBtn">Update</button>
   </div>
-</div>
+</div> -->
 
 </body>
 </html>

@@ -1,43 +1,36 @@
-const loginForm = document.getElementById("loginForm");
-const loginButton = document.getElementById("login-form-submit");
-/**
- * Login function with evenListener.
- * EventListener for when the login button is clicked, sets auth token and email address for use when viewing your own posts on profile page.
- * When credentials are valid redirects you to profile page. 
- */
-loginForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const email = loginForm.email.value;
-  const password = loginForm.password.value;
+import { API_MAIN_URL } from "../constants.js";
+import * as storage from "../../storage/index.js";
+
+const action = "/auth/login";
+const method = "POST";
+
+export async function logIn(userProfile) {
+  const loginURL = `${API_MAIN_URL}${action}`;
+  const body = JSON.stringify(userProfile);
+
   try {
-    fetch("https://api.noroff.dev/api/v1/auction/auth/login", {
-      method: "POST",
-      body: JSON.stringify({
-        email: email,
-        password: password,
-      }),
+    const response = await fetch(loginURL, {
       headers: {
-        "Content-type": "application/json; charset=UTF-8",
+        "Content-Type": "application/json",
       },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        window.localStorage.setItem("_token", data.accessToken);
-        window.localStorage.setItem("_email", data.email);
-        window.localStorage.setItem("credits", data.credits);
-        window.localStorage.setItem("profile", data.name);
-        location.href = "/profile/index.html"
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+      method,
+      body,
+    });
+
+    const { accessToken, ...user } = await response.json();
+
+    console.log(response);
+
+    if (response.status === 200) {
+      storage.createLocalStorageSave("token", accessToken);
+      storage.createLocalStorageSave("userProfile", user);
+      location.href = "../../../profile/index.html";
+    }
+
+    if (response.status !== 200) {
+      alert("Something went wrong! Please check your Username and/or Password");
+    }
   } catch (error) {
     console.log(error);
   }
-});
-
-if (localStorage.getItem("_token")) {
-  location.href = "/profile/index.html"
-};
-let link = document.getElementById("logoutLink")
-    link.style.display="none";
+}

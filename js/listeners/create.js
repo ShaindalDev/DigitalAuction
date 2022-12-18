@@ -1,27 +1,32 @@
 import { createNewListing } from "../api/profile/create.js";
 
-export function createNewListener(){
-    const form = document.querySelector("#newListingForm");
+export function createNewListingListener() {
+  const form = document.getElementById("newListingForm");
 
-    if(form) {
-        form.addEventListener("submit", (event) => {
-            event.preventDefault()
-            console.log("Clicked form");
-            const form = event.target;
-            const formData = new FormData(form);
-            // const listing = Object.fromEntries(formData.entries())
-        
-            const title = formData.get('title');
-                const description = formData.get('description');
-                const tags = formData.get('tags').split(', ');
-                const media = formData.get('media').split(', ');
-                const endsAt = formData.get('endsAt');
+  if (form) {
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
 
-                const listing = {title, description, tags, media, endsAt}
+      const form = event.target;
+      const formData = new FormData(form);
 
-                createNewListing(listing).then(console.log(listing))
-    })
+      const title = formData.get("title");
+      const description = formData.get("description");
+      const endsAt = new Date(formData.get("endsAt"));
+      const media = formData.get("media").split(", ");
+      const tags = formData.get("tags").split(", ");
+
+      const listing = { title, description, media, endsAt, tags };
+
+      if (listing.tags === "") {
+        delete listing.tags;
+      }
+
+      if (listing.media === "") {
+        delete listing.media;
+      }
+
+      createNewListing(listing);
+    });
+  }
 }
-};
-
-console.log("this was loaded");

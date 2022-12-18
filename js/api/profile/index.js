@@ -1,3 +1,2 @@
-export * from "./create.js";
+export * from "./updateAvatar.js";
 export * from "./profile.js";
-// export * from "./usersListing.js";
