@@ -10,14 +10,11 @@ async function getAllItems() {
   try {
     const response = await fetch(url);
     const data = await response.json();
-    console.log(data)
-
+    console.log(data);
 
     if (response.status === 200) {
       renderItems(data);
     }
-
-    console.log(data);
   } catch (error) {
     console.log(error);
   }

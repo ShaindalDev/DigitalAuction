@@ -9,10 +9,9 @@ export async function getUnAuthItems(getItemsURL) {
   try {
     const response = await fetch(url);
     const items = await response.json(getItemsURL);
-    console.log(items);
+
     renderItems(items);
     searchPosts(items);
-
   } catch (error) {
     console.log(error);
   }

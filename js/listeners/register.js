@@ -5,7 +5,6 @@ export function setRegisterUserListener() {
 
   if (form) {
     form.addEventListener("submit", (event) => {
-      console.log("this was clicked");
       event.preventDefault();
 
       const form = event.target;

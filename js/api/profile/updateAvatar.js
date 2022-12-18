@@ -1,18 +1,17 @@
-import { profileURL } from "../constants.js";
+import { API_MAIN_URL } from "../constants.js";
 import { authFetch } from "../authHeader.js";
 import { load } from "../../storage/index.js";
 
+const action = "/profiles";
 const method = "PUT";
 
 export async function updateUserAvatar(userData) {
   const user = load("userProfile");
   const userName = user.name;
-  const updateAvatarURL = `${profileURL}/${userName}/media`;
-
-  console.log(updateAvatarURL);
+  const updateAvatarURL = `${API_MAIN_URL}${action}/${userName}/media`;
 
   if (!user) {
-    throw new Error("This requires a valid user ID!");
+    throw new Error("This requires a valid user!");
   }
 
   const response = await authFetch(updateAvatarURL, {
@@ -20,10 +19,5 @@ export async function updateUserAvatar(userData) {
     body: JSON.stringify(userData),
   });
 
-  if (response.status === 201) {
-    alert("Avatar update success");
-  }
-
-  location.href = `../../../profile/index.html/`;
   return await response.json();
 }

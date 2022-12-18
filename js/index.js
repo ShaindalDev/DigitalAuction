@@ -2,7 +2,7 @@ import * as listeners from "./listeners/index.js";
 
 const path = location.pathname;
 
-console.log("current path", path);
+// console.log("current path", path);
 
 if (path === "/login/index.html") {
   listeners.setLogInFormListener();
@@ -14,5 +14,3 @@ if (path === "/login/index.html") {
 } else if (path === "/listing/singleListing/index.html") {
   listeners.bidOnItemListener();
 }
-
-console.log("this was loaded..cachingching");
