@@ -17,14 +17,8 @@ The tech used to build this app/platform
 ## Getting Started
 
 ### Installing
-
-The project repository can be cloned using this link:
-
-```bash
-git clone https://github.com/th3boe/Semester-Project-2-YSA.git
-```
-
-Which you can open using Visual Studio Code or another code editor.
+Clone the repo from github, and choose either download zip or GitHub Desktop.
+After that you can open it in Visual Studio Code, or any code editor you like to use. 
 
 The repository has some connected dependencies which can be accessed using terminal:
 
@@ -46,7 +40,7 @@ This will open the option to view the page in the browser at: http://127.0.0.1:5
 
 The API was given by the school and the information about what links and what names needs to be used for the calls to work can be found here:
 
-https://docs.noroff.dev/auctionhouse-endpoints/listings
+[Noroff API](https://noroff-api-docs.netlify.app/auctionhouse-endpoints/authentication)
 
 ## Contact
 
