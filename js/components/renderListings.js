@@ -1,4 +1,3 @@
-import { timeFormatChanger } from "./timeChange";
 /**
  * This renders the HTML for all items.
  * @param {*} itemsToRender

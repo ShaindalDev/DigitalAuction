@@ -1,4 +1,4 @@
-import { remove } from "../../storage";
+import { remove } from "../../storage/index.js";
 
 export function logOut() {
   const logOutButton = document.querySelector("#logout");

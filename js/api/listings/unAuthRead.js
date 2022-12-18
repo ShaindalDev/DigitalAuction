@@ -1,6 +1,6 @@
 import { API_MAIN_URL } from "../constants.js";
 import { searchPosts } from "../../components/searchFunction.js";
-import { renderItems } from "../../components/renderListings";
+import { renderItems } from "../../components/renderListings.js";
 
 export async function getUnAuthItems(getItemsURL) {
   const url = `${API_MAIN_URL}/listings?_active=true&_seller=true&_bids=true&sort=created&sortOrder=desc`;
