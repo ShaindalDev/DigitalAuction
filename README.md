@@ -1,5 +1,7 @@
 # Digital Auction 
-Demo of the site it self : https://strong-pegasus-9709d8.netlify.app/index.html
+!![image](https://user-images.githubusercontent.com/52622303/164316813-4b12d99f-aeb7-4069-85cf-e72b3a50ac99.png)
+
+Demo of the site : https://strong-pegasus-9709d8.netlify.app/index.html
 ## Description
 
 A online auction house website. This is part of Noroff semester project. Built with Noroff API to access items and data that is created.
