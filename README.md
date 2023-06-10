@@ -1,5 +1,5 @@
 # Digital Auction 
-!![image](https://github.com/ShaindalDev/DigitalAuction/blob/6c44354289a0662d51cec11760977918720addba/assets/digital_auction.png)
+![image](https://github.com/ShaindalDev/DigitalAuction/blob/6c44354289a0662d51cec11760977918720addba/assets/digital_auction.png)
 
 Demo of the site : https://strong-pegasus-9709d8.netlify.app/index.html
 ## Description
